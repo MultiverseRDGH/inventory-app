@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+
 router.get("/:id", async (req, res) => {
   try {
     const item = await Items.findByPk(req.params.id);
@@ -56,3 +57,4 @@ router.put('/:id', async(req,res) => {
 })
 
 module.exports = router;
+
