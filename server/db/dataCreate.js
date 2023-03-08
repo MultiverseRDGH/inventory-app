@@ -3,7 +3,7 @@ const { sequelize } = require("./Connection");
 const { Items } = require("../models/Item");
 
 const dataCreate = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync();
 
   //Bulk Create the Data
   await Items.bulkCreate([
