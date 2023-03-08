@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+
 router.get("/:id", async (req, res) => {
   try {
     const item = await Items.findByPk(req.params.id);
@@ -41,4 +42,19 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.put('/:id', async(req,res) => {
+    try{
+        const id = req.params.id;
+        
+        await Items.update(req.body,{where: {id}})
+        const item = await Items.findByPk(id);
+
+        res.send(item);
+    } catch(err) {
+        console.error(err);
+        res.status(500).send({ error: err.message });
+    }
+})
+
 module.exports = router;
+
