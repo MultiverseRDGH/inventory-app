@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SingleItem = () => {
   const [singleItem, setSingleItem] = useState([]);
@@ -15,10 +15,21 @@ const SingleItem = () => {
     getSingleItem();
   }, [path]);
 
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    await fetch(`http://localhost:3000/items/${path}`, {
+      method: 'DELETE',
+    });
+    alert('Item Deleted!');
+    navigate('/items');
+  };
+
   return (
     <div>
       <h1>{singleItem.title}</h1>
       <h1>{singleItem.description}</h1>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };
