@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function NewItemForm() {
+export default function NewItemForm({ url, verb }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
@@ -9,8 +9,8 @@ export default function NewItemForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch("http://localhost:3000/items", {
-      method: "POST",
+    await fetch(`${url}`, {
+      method: `${verb}`,
 
       headers: { "Content-type": "application/json" },
 

@@ -4,7 +4,7 @@ import NewItemForm from "../components/NewItemForm";
 const NewItemPage = () => {
   return (
     <div>
-      <NewItemForm />
+      <NewItemForm url="http://localhost:3000/items" verb="POST" />
     </div>
   );
 };
