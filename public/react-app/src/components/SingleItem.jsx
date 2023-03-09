@@ -1,6 +1,5 @@
-
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import NewItemForm from "./NewItemForm";
 
 const SingleItem = () => {
@@ -23,10 +22,15 @@ const SingleItem = () => {
 
   const handleDelete = async () => {
     await fetch(`http://localhost:3000/items/${path}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
-    alert('Item Deleted!');
-    navigate('/items');
+    alert("Item Deleted!");
+    navigate("/items");
+  };
+
+  const update = () => {
+    alert("Item Updated");
+    navigate("/items");
   };
 
   return (
@@ -42,7 +46,11 @@ const SingleItem = () => {
       </button>
       <button onClick={handleDelete}>Delete</button>
       {updateItem && (
-        <NewItemForm url={`http://localhost:3000/items/${path}`} verb="PUT" />
+        <NewItemForm
+          url={`http://localhost:3000/items/${path}`}
+          verb="PUT"
+          update={update}
+        />
       )}
     </div>
   );

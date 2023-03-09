@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function NewItemForm({ url, verb }) {
+export default function NewItemForm({ url, verb, update }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
@@ -32,6 +32,10 @@ export default function NewItemForm({ url, verb }) {
       });
 
     e.target.reset();
+
+    if (verb === "PUT") {
+      update();
+    }
   };
 
   return (
