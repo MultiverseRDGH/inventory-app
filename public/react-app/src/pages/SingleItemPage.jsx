@@ -1,5 +1,5 @@
-import React from 'react';
-import SingleItem from '../components/SingleItem';
+import React from "react";
+import SingleItem from "../components/SingleItem";
 
 export default function SingleItemPage() {
   return (

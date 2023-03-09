@@ -1,13 +1,13 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import Item from './Item';
-import { v4 } from 'uuid';
+import React from "react";
+import { useState, useEffect } from "react";
+import Item from "./Item";
+import { v4 } from "uuid";
 export default function ItemList() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     const fetchItems = async () => {
-      const res = await fetch('http://localhost:3000/items');
+      const res = await fetch("http://localhost:3000/items");
 
       const data = await res.json();
 
@@ -16,7 +16,7 @@ export default function ItemList() {
     fetchItems();
   }, []);
 
-  console.log(items, 'items');
+  console.log(items, "items");
   return (
     <ul>
       {items.map((item) => (
