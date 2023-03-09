@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import NewItemForm from "./NewItemForm";
 
 const SingleItem = () => {
   const [singleItem, setSingleItem] = useState([]);
+  const [updateItem, setUpdateItem] = useState(false);
+
   const location = useLocation();
-  const path = location.pathname.split('/').at(-1);
+  const path = location.pathname.split("/").at(-1);
 
   useEffect(() => {
     const getSingleItem = async () => {
@@ -19,6 +22,19 @@ const SingleItem = () => {
     <div>
       <h1>{singleItem.title}</h1>
       <h1>{singleItem.description}</h1>
+
+      <button
+        onClick={() => {
+          setUpdateItem(true);
+        }}
+      >
+        Update Items
+      </button>
+      <button>Delete Item</button>
+
+      {updateItem && (
+        <NewItemForm url={`http://localhost:3000/items/${path}`} verb="PUT" />
+      )}
     </div>
   );
 };
