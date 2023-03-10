@@ -1,10 +1,10 @@
-const express = require("express");
-const { Items } = require("../models/Item");
+const express = require('express');
+const { Items } = require('../models/Item');
 const router = express.Router();
-router.use(express.json());
-const { body, validationResult, check } = require("express-validator");
+const { body, validationResult, check } = require('express-validator');
 
-router.get("/", async (req, res) => {
+router.use(express.json());
+router.get('/', async (req, res) => {
   try {
     const items = await Items.findAll();
     res.send(items);
@@ -14,11 +14,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const item = await Items.findByPk(req.params.id);
     if (!item) {
-      res.status(404).send("Item Not Found!");
+      res.status(404).send('Item Not Found!');
     } else {
       res.send(item);
     }
@@ -29,13 +29,13 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post(
-  "/",
+  '/',
   [
-    check("title").trim().notEmpty().isString(),
-    check("description").trim().notEmpty(),
-    check("price").trim().isNumeric(),
-    check("category").trim().notEmpty(),
-    check("image").trim().notEmpty(),
+    check('title').trim().notEmpty().isString(),
+    check('description').trim().notEmpty(),
+    check('price').trim().isNumeric(),
+    check('category').trim().notEmpty(),
+    check('image').trim().notEmpty(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -61,22 +61,41 @@ router.post(
   }
 );
 
-router.put("/:id", async (req, res) => {
-  try {
-    const id = req.params.id;
+router.put(
+  '/:id',
+  [
+    check('title')
+      .optional()
+      .trim()
+      .notEmpty()
+      .isString()
+      .isLength({ min: 2, max: 50 }),
+    check('description').optional().trim().notEmpty(),
+    check('price').optional().trim().isNumeric(),
+    check('category').optional().trim().notEmpty(),
+    check('image').optional().trim().notEmpty(),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).send({ errors: errors.array() });
+    }
+    try {
+      const id = req.params.id;
 
-    await Items.update(req.body, { where: { id } });
+      await Items.update(req.body, { where: { id } });
 
-    const item = await Items.findByPk(id);
+      const item = await Items.findByPk(id);
 
-    res.send(item);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send({ error: err.message });
+      res.send(item);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send(alert({ error: err.message }));
+    }
   }
-});
+);
 
-router.delete("/:id", async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const id = req.params.id;
 
@@ -88,7 +107,7 @@ router.delete("/:id", async (req, res) => {
 
     await Items.destroy({ where: { id } });
 
-    res.send("Item Deleted!");
+    res.send('Item Deleted!');
   } catch (err) {
     console.error(err);
     res.status(500).send({ error: err.message });
