@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import NewItemForm from "./NewItemForm";
 import {
@@ -9,10 +9,13 @@ import {
   ItemDeskptopDiv,
   ItemDescButtonDiv,
 } from "../styles/styledComponents";
+import { OrderContext } from "../App";
 
 const SingleItem = () => {
   const [singleItem, setSingleItem] = useState([]);
   const [updateItem, setUpdateItem] = useState(false);
+
+  const { orders, setOrders } = useContext(OrderContext);
 
   const location = useLocation();
   const path = location.pathname.split("/").at(-1);
@@ -56,6 +59,17 @@ const SingleItem = () => {
           >
             Update Items
           </button>
+
+          <button
+            onClick={() => {
+              setOrders([...orders, singleItem]);
+              alert("Item has been ordered");
+              navigate("/items");
+            }}
+          >
+            Add to your Orders
+          </button>
+
           <button onClick={handleDelete}>Delete</button>
         </ItemDescButtonDiv>
       </ItemDeskptopDiv>
