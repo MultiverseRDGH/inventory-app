@@ -20,7 +20,6 @@ function App() {
       <h1>Hello</h1>
       <OrderContext.Provider value={{ orders, setOrders }}>
         <OrdersPage />
-
         <Routes>
           <Route path="/items" element={<ItemList />}></Route>
           <Route path="/items/single/:id" element={<SingleItemPage />}></Route>
