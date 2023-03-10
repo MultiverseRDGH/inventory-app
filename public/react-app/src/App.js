@@ -3,7 +3,7 @@ import ItemList from "./components/ItemList";
 import { Routes, Route } from "react-router-dom";
 import SingleItemPage from "./pages/SingleItemPage";
 import NewItemPage from "./pages/NewItemPage";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 import OrdersPage from "./pages/OrdersPage";
 
@@ -14,6 +14,7 @@ export const OrderContext = createContext({
 
 function App() {
   const [orders, setOrders] = useState([]);
+
   return (
     <>
       <h1>Hello</h1>

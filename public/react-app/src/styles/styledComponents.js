@@ -115,4 +115,19 @@ export const AllItemsHeader = styled.h1`
   font-family: "Marko One";
   font-size: 3rem;
   font-weight: 900;
+  text-decoration: underline;
+`;
+
+//ORDERS
+
+export const Order = styled.li`
+  font-family: "Afla Slab One", "Marko One", "san-serif";
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: black;
+`;
+
+export const OrderContainer = styled.div`
+  background-color: #ebebea;
+  box-sizing: border-box;
 `;
