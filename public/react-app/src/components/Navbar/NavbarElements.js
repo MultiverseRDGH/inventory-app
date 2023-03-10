@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
   background: #0f1123;
@@ -27,6 +27,7 @@ export const NavLogo = styled(Link)`
   display: flex;
   align-items: center;
   margin-left: 5px;
+  padding: 15px;
 `;
 
 export const HamburgerMenu = styled.div`
@@ -49,6 +50,10 @@ export const NavMenu = styled.ul`
   align-items: center;
   list-style: none;
   text-align: center;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavItem = styled.li`

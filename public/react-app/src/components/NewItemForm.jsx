@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { FormContainer, FormSection } from "../styles/styledComponents";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { FormContainer, FormSection } from '../styles/styledComponents';
+import { useNavigate } from 'react-router-dom';
 
 export default function NewItemForm({ url, verb, update }) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [price, setPrice] = useState();
-  const [category, setCategory] = useState("");
-  const [image, setImage] = useState("");
+  const [category, setCategory] = useState('');
+  const [image, setImage] = useState('');
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export default function NewItemForm({ url, verb, update }) {
     await fetch(`${url}`, {
       method: `${verb}`,
 
-      headers: { "Content-type": "application/json" },
+      headers: { 'Content-type': 'application/json' },
 
       body: JSON.stringify({
         title,
@@ -37,10 +37,10 @@ export default function NewItemForm({ url, verb, update }) {
 
     e.target.reset();
 
-    if (verb === "PUT") {
+    if (verb === 'PUT') {
       update();
     }
-    navigate("/items");
+    navigate('/');
   };
 
   return (
