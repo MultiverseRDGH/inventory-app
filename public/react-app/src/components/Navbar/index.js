@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Nav,
@@ -8,17 +8,21 @@ import {
   NavLink,
   NavBtn,
   NavBtnLink,
-} from "./NavbarElements";
+  HamburgerMenu,
+} from './NavbarElements';
+import { FaBars } from 'react-icons/fa';
 
 const Navbar = ({ toggle }) => {
   return (
     <>
       <Nav>
         <NavLogo to="/">Inventory App</NavLogo>
-
+        <HamburgerMenu>
+          <FaBars onClick={toggle} />
+        </HamburgerMenu>
         <NavMenu>
           <NavItem>
-            <NavLink to="/items">All Items</NavLink>
+            <NavLink to="/">All Items</NavLink>
           </NavItem>
           <NavItem>
             <NavLink to="/items/orders">My Orders</NavLink>
@@ -28,7 +32,7 @@ const Navbar = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink>Something here</NavBtnLink>
+          <NavBtnLink>Contact</NavBtnLink>
         </NavBtn>
       </Nav>
     </>
