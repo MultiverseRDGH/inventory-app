@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const FormContainer = styled.form`
   background-color: #bd285c;
@@ -88,4 +89,30 @@ export const ItemDescButtonDiv = styled.div`
   margin: auto;
   align-items: flex-end;
   justify-content: center;
+`;
+
+//ALL ITEM PAGE
+
+export const IndividualItems = styled(Link)`
+  color: black;
+  text-decoration: none;
+  > li {
+    padding: 0.4 1rem;
+  }
+`;
+
+export const AllItems = styled.ul`
+  list-style: none;
+`;
+
+export const ItemContainer = styled.div`
+  padding: 1rem;
+  font-family: "Kanit";
+  font-size: 1.4rem;
+`;
+
+export const AllItemsHeader = styled.h1`
+  font-family: "Marko One";
+  font-size: 3rem;
+  font-weight: 900;
 `;

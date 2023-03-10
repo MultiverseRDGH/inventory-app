@@ -1,12 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import { IndividualItems, ItemContainer } from "../styles/styledComponents";
 
 export default function Item(props) {
   return (
-    <div>
+    <ItemContainer>
       <li>
-        <Link to={`/items/single/${props.item.id}`}>{props.item.title}</Link>
+        <IndividualItems to={`/items/single/${props.item.id}`}>
+          {props.item.title}
+        </IndividualItems>
       </li>
-    </div>
+    </ItemContainer>
   );
 }
