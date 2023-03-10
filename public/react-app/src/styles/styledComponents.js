@@ -138,7 +138,6 @@ export const AddOrderButton = styled.button`
 
 export const IndividualItems = styled(Link)`
   color: black;
-
   text-decoration: none;
 `;
 
@@ -147,18 +146,25 @@ export const ItemImg = styled.img`
 `;
 
 export const AllItems = styled.ul`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: 100px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
 `;
 
 export const ItemContainer = styled.div`
   background-color: #fff;
   border-radius: 10px;
-  margin: 15px;
-  padding: 3rem;
+  margin: 10px 0;
+  padding: 2rem;
   width: 80%;
   font-size: 1.3rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -184,7 +190,6 @@ export const Order = styled.li`
 `;
 
 export const OrderContainer = styled.div`
-  background-color: #ebebea;
   box-sizing: border-box;
   height: 100vh;
 `;
