@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const FormContainer = styled.form`
   background-color: #bd285c;
@@ -20,7 +20,7 @@ export const FormContainer = styled.form`
     height: 10%;
     margin: auto;
     font-size: 2rem;
-    font-family: "Kanit", sans-serif;
+    font-family: 'Kanit', sans-serif;
     font-weight: 900;
     text-transform: uppercase;
     text-decoration: underline;
@@ -41,7 +41,7 @@ export const FormSection = styled.div`
   }
   > label {
     padding: 0 1rem;
-    font-family: "Marko One", serif;
+    font-family: 'Marko One', serif;
     font-size: 1.2rem;
     font-weight: 900;
   }
@@ -64,7 +64,7 @@ export const ItemImage = styled.img`
 `;
 
 export const ItemName = styled.h1`
-  font-family: "Lilita One";
+  font-family: 'Lilita One';
   color: #f3b712;
   font-size: 3rem;
   font-weight: bold;
@@ -95,33 +95,45 @@ export const ItemDescButtonDiv = styled.div`
 
 export const IndividualItems = styled(Link)`
   color: black;
+  width: 250px;
   text-decoration: none;
   > li {
     padding: 0.4 1rem;
   }
 `;
 
+export const ItemImg = styled.img`
+  width: 10%;
+`;
+
 export const AllItems = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   list-style: none;
 `;
 
 export const ItemContainer = styled.div`
-  padding: 1rem;
-  font-family: "Kanit";
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 3rem;
+  width: 900px;
   font-size: 1.4rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 `;
 
 export const AllItemsHeader = styled.h1`
-  font-family: "Marko One";
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
   font-size: 3rem;
-  font-weight: 900;
-  text-decoration: underline;
 `;
 
 //ORDERS
 
 export const Order = styled.li`
-  font-family: "Afla Slab One", "Marko One", "san-serif";
   font-size: 1.5rem;
   font-weight: 800;
   color: black;
