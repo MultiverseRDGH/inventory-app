@@ -8,6 +8,9 @@ import {
   ItemDescription,
   ItemDeskptopDiv,
   ItemDescButtonDiv,
+  UpdateButton,
+  DeleteButton,
+  AddOrderButton,
 } from "../styles/styledComponents";
 import { OrderContext } from "../App";
 
@@ -52,15 +55,15 @@ const SingleItem = () => {
         <ItemDescButtonDiv>
           <ItemDescription>{singleItem.description}</ItemDescription>
 
-          <button
+          <UpdateButton
             onClick={() => {
               setUpdateItem(true);
             }}
           >
             Update Items
-          </button>
+          </UpdateButton>
 
-          <button
+          <AddOrderButton
             onClick={() => {
               setOrders([...orders, singleItem]);
               alert("Item has been ordered");
@@ -68,9 +71,9 @@ const SingleItem = () => {
             }}
           >
             Add to your Orders
-          </button>
+          </AddOrderButton>
 
-          <button onClick={handleDelete}>Delete</button>
+          <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
         </ItemDescButtonDiv>
       </ItemDeskptopDiv>
       {updateItem && (
