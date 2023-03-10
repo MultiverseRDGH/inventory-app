@@ -130,4 +130,5 @@ export const Order = styled.li`
 export const OrderContainer = styled.div`
   background-color: #ebebea;
   box-sizing: border-box;
+  height: 100vh;
 `;
