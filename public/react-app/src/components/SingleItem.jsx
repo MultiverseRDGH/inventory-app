@@ -6,6 +6,8 @@ import {
   ItemImage,
   ItemName,
   ItemDescription,
+  ItemDeskptopDiv,
+  ItemDescButtonDiv,
 } from "../styles/styledComponents";
 
 const SingleItem = () => {
@@ -42,19 +44,21 @@ const SingleItem = () => {
   return (
     <SingleItemContainer>
       <ItemName>{singleItem.title}</ItemName>
-      <ItemImage src={`${singleItem.image}`} alt="" />
-      <ItemDescription>{singleItem.description}</ItemDescription>
+      <ItemDeskptopDiv>
+        <ItemImage src={`${singleItem.image}`} alt="" />
+        <ItemDescButtonDiv>
+          <ItemDescription>{singleItem.description}</ItemDescription>
 
-      <div>
-        <button
-          onClick={() => {
-            setUpdateItem(true);
-          }}
-        >
-          Update Items
-        </button>
-        <button onClick={handleDelete}>Delete</button>
-      </div>
+          <button
+            onClick={() => {
+              setUpdateItem(true);
+            }}
+          >
+            Update Items
+          </button>
+          <button onClick={handleDelete}>Delete</button>
+        </ItemDescButtonDiv>
+      </ItemDeskptopDiv>
       {updateItem && (
         <NewItemForm
           url={`http://localhost:3000/items/${path}`}

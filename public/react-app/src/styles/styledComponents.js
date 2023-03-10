@@ -75,3 +75,17 @@ export const ItemDescription = styled.h2`
   padding: 1rem;
   margin: 1rem 0.5rem;
 `;
+
+export const ItemDeskptopDiv = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: flex-start;
+  }
+  margin: 2rem;
+`;
+
+export const ItemDescButtonDiv = styled.div`
+  margin: auto;
+  align-items: flex-end;
+  justify-content: center;
+`;
