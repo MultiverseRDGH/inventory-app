@@ -93,6 +93,47 @@ export const ItemDescButtonDiv = styled.div`
   justify-content: center;
 `;
 
+export const UpdateButton = styled.button`
+  border-radius: 1.2rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  background-color: #d54848;
+  border: none;
+  &:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 463px) {
+    margin: 0;
+  }
+`;
+
+export const DeleteButton = styled.button`
+  border-radius: 1.2rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  border: none;
+  background-color: #487ed5;
+  &:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 463px) {
+    margin: 0;
+  }
+`;
+export const AddOrderButton = styled.button`
+  border-radius: 1.2rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  border: none;
+  background-color: #48d59f;
+  &:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 463px) {
+    margin: 0;
+  }
+`;
+
 //ALL ITEM PAGE
 
 export const IndividualItems = styled(Link)`
