@@ -27,6 +27,7 @@ export const NavLogo = styled(Link)`
   display: flex;
   align-items: center;
   margin-left: 5px;
+  padding: 15px;
 `;
 
 export const HamburgerMenu = styled.div`

@@ -10,13 +10,16 @@ import {
   NavBtnLink,
   HamburgerMenu,
 } from './NavbarElements';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaBoxOpen } from 'react-icons/fa';
 
 const Navbar = ({ toggle }) => {
   return (
     <>
       <Nav>
-        <NavLogo to="/">Inventory App</NavLogo>
+        <NavLogo to="/">
+          <FaBoxOpen style={{ fontSize: '35px', paddingLeft: '5px' }} />
+          <p style={{ marginLeft: '10px' }}>Inventory App</p>
+        </NavLogo>
         <HamburgerMenu>
           <FaBars onClick={toggle} />
         </HamburgerMenu>

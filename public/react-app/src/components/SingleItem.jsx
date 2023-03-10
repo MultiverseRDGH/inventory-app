@@ -1,18 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import NewItemForm from "./NewItemForm";
+import React, { useContext, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import NewItemForm from './NewItemForm';
 import {
   SingleItemContainer,
   ItemImage,
   ItemName,
   ItemDescription,
+  ItemDescriptionDiv,
   ItemDeskptopDiv,
   ItemDescButtonDiv,
   UpdateButton,
   DeleteButton,
   AddOrderButton,
-} from "../styles/styledComponents";
-import { OrderContext } from "../App";
+} from '../styles/styledComponents';
+import { OrderContext } from '../App';
 
 const SingleItem = () => {
   const [singleItem, setSingleItem] = useState([]);
@@ -21,7 +22,7 @@ const SingleItem = () => {
   const { orders, setOrders } = useContext(OrderContext);
 
   const location = useLocation();
-  const path = location.pathname.split("/").at(-1);
+  const path = location.pathname.split('/').at(-1);
 
   useEffect(() => {
     const getSingleItem = async () => {
@@ -36,15 +37,15 @@ const SingleItem = () => {
 
   const handleDelete = async () => {
     await fetch(`http://localhost:3000/items/${path}`, {
-      method: "DELETE",
+      method: 'DELETE',
     });
-    alert("Item Deleted!");
-    navigate("/items");
+    alert('Item Deleted!');
+    navigate('/');
   };
 
   const update = () => {
-    alert("Item Updated");
-    navigate("/items");
+    alert('Item Updated');
+    navigate('/');
   };
 
   return (
@@ -53,7 +54,9 @@ const SingleItem = () => {
       <ItemDeskptopDiv>
         <ItemImage src={`${singleItem.image}`} alt="" />
         <ItemDescButtonDiv>
-          <ItemDescription>{singleItem.description}</ItemDescription>
+          <ItemDescriptionDiv>
+            <ItemDescription>{singleItem.description}</ItemDescription>
+          </ItemDescriptionDiv>
 
           <UpdateButton
             onClick={() => {
@@ -66,8 +69,8 @@ const SingleItem = () => {
           <AddOrderButton
             onClick={() => {
               setOrders([...orders, singleItem]);
-              alert("Item has been ordered");
-              navigate("/items");
+              alert('Item has been ordered');
+              navigate('/items/orders');
             }}
           >
             Add to your Orders

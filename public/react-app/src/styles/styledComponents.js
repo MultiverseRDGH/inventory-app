@@ -55,28 +55,31 @@ export const SingleItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding: 2rem 3rem;
+  height: 100vh;
 `;
 
 export const ItemImage = styled.img`
-  width: 20%;
-  height: 20%;
+  width: 40%;
   margin: auto;
   border-radius: 0.3rem;
   box-shadow: 6px 10px 5px 0px rgba(0, 0, 0, 0.75);
 `;
 
 export const ItemName = styled.h1`
-  font-family: 'Lilita One';
-  color: #f3b712;
+  color: #fff;
   font-size: 3rem;
-  font-weight: bold;
-  text-decoration: underline;
 `;
 
-export const ItemDescription = styled.h2`
-  border: 2px solid black;
+export const ItemDescriptionDiv = styled.div`
+  backgroud-color: #fff;
+`;
+
+export const ItemDescription = styled.p`
+  font-size: 1.3rem;
   padding: 1rem;
   margin: 1rem 0.5rem;
+  backgroud-color: #fff;
 `;
 
 export const ItemDeskptopDiv = styled.div`
@@ -166,7 +169,7 @@ export const ItemContainer = styled.div`
   margin: 10px 0;
   padding: 2rem;
   width: 80%;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
   @media (max-width: 768px) {
@@ -178,12 +181,14 @@ export const AllItemsHeader = styled.h1`
   color: #fff;
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 40px;
   font-size: 3rem;
 `;
 
 //ORDERS
 
 export const Order = styled.li`
+  text-align: center;
   font-size: 1.5rem;
   font-weight: 800;
   color: black;
