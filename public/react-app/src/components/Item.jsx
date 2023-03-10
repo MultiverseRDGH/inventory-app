@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 import {
   IndividualItems,
@@ -9,7 +10,7 @@ import {
 export default function Item(props) {
   return (
     <ItemContainer>
-      <li style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <li className="single-list-item">
         <IndividualItems to={`/items/single/${props.item.id}`}>
           {props.item.title}
         </IndividualItems>

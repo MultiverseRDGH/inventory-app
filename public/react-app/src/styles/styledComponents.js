@@ -138,15 +138,12 @@ export const AddOrderButton = styled.button`
 
 export const IndividualItems = styled(Link)`
   color: black;
-  width: 250px;
+
   text-decoration: none;
-  > li {
-    padding: 0.4 1rem;
-  }
 `;
 
 export const ItemImg = styled.img`
-  width: 10%;
+  width: 15%;
 `;
 
 export const AllItems = styled.ul`
@@ -162,9 +159,13 @@ export const ItemContainer = styled.div`
   border-radius: 10px;
   margin: 15px;
   padding: 3rem;
-  width: 900px;
-  font-size: 1.4rem;
+  width: 80%;
+  font-size: 1.3rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const AllItemsHeader = styled.h1`
