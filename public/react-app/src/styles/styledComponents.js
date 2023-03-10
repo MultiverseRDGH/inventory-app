@@ -45,3 +45,33 @@ export const FormSection = styled.div`
     font-weight: 900;
   }
 `;
+
+//Single Item viewpage
+
+export const SingleItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`;
+
+export const ItemImage = styled.img`
+  width: 20%;
+  height: 20%;
+  margin: auto;
+  border-radius: 0.3rem;
+  box-shadow: 6px 10px 5px 0px rgba(0, 0, 0, 0.75);
+`;
+
+export const ItemName = styled.h1`
+  font-family: "Lilita One";
+  color: #f3b712;
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: underline;
+`;
+
+export const ItemDescription = styled.h2`
+  border: 2px solid black;
+  padding: 1rem;
+  margin: 1rem 0.5rem;
+`;

@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import NewItemForm from "./NewItemForm";
+import {
+  SingleItemContainer,
+  ItemImage,
+  ItemName,
+  ItemDescription,
+} from "../styles/styledComponents";
 
 const SingleItem = () => {
   const [singleItem, setSingleItem] = useState([]);
@@ -34,17 +40,21 @@ const SingleItem = () => {
   };
 
   return (
-    <div>
-      <h1>{singleItem.title}</h1>
-      <h1>{singleItem.description}</h1>
-      <button
-        onClick={() => {
-          setUpdateItem(true);
-        }}
-      >
-        Update Items
-      </button>
-      <button onClick={handleDelete}>Delete</button>
+    <SingleItemContainer>
+      <ItemName>{singleItem.title}</ItemName>
+      <ItemImage src={`${singleItem.image}`} alt="" />
+      <ItemDescription>{singleItem.description}</ItemDescription>
+
+      <div>
+        <button
+          onClick={() => {
+            setUpdateItem(true);
+          }}
+        >
+          Update Items
+        </button>
+        <button onClick={handleDelete}>Delete</button>
+      </div>
       {updateItem && (
         <NewItemForm
           url={`http://localhost:3000/items/${path}`}
@@ -52,7 +62,7 @@ const SingleItem = () => {
           update={update}
         />
       )}
-    </div>
+    </SingleItemContainer>
   );
 };
 
