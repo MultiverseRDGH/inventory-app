@@ -5,6 +5,8 @@ import SingleItemPage from "./pages/SingleItemPage";
 import NewItemPage from "./pages/NewItemPage";
 import { createContext, useState } from "react";
 
+import OrdersPage from "./pages/OrdersPage";
+
 export const OrderContext = createContext({
   orders: [],
   setOrders: () => {},
@@ -16,6 +18,8 @@ function App() {
     <>
       <h1>Hello</h1>
       <OrderContext.Provider value={{ orders, setOrders }}>
+        <OrdersPage />
+
         <Routes>
           <Route path="/items" element={<ItemList />}></Route>
           <Route path="/items/single/:id" element={<SingleItemPage />}></Route>
