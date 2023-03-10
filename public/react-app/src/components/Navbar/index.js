@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
   Nav,
@@ -8,7 +8,7 @@ import {
   NavLink,
   NavBtn,
   NavBtnLink,
-} from './NavbarElements';
+} from "./NavbarElements";
 
 const Navbar = ({ toggle }) => {
   return (
@@ -18,13 +18,13 @@ const Navbar = ({ toggle }) => {
 
         <NavMenu>
           <NavItem>
-            <NavLink to="/">Link</NavLink>
+            <NavLink to="/items">All Items</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/">Link</NavLink>
+            <NavLink to="/items/orders">My Orders</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/">Link</NavLink>
+            <NavLink to="/items/new">Add Item</NavLink>
           </NavItem>
         </NavMenu>
         <NavBtn>

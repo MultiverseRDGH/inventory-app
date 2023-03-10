@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FormContainer, FormSection } from "../styles/styledComponents";
+import { useNavigate } from "react-router-dom";
 
 export default function NewItemForm({ url, verb, update }) {
   const [title, setTitle] = useState("");
@@ -7,6 +8,8 @@ export default function NewItemForm({ url, verb, update }) {
   const [price, setPrice] = useState();
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +40,7 @@ export default function NewItemForm({ url, verb, update }) {
     if (verb === "PUT") {
       update();
     }
+    navigate("/items");
   };
 
   return (
