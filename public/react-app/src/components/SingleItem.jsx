@@ -1,11 +1,21 @@
-
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import NewItemForm from "./NewItemForm";
+import {
+  SingleItemContainer,
+  ItemImage,
+  ItemName,
+  ItemDescription,
+  ItemDeskptopDiv,
+  ItemDescButtonDiv,
+} from "../styles/styledComponents";
+import { OrderContext } from "../App";
 
 const SingleItem = () => {
   const [singleItem, setSingleItem] = useState([]);
   const [updateItem, setUpdateItem] = useState(false);
+
+  const { orders, setOrders } = useContext(OrderContext);
 
   const location = useLocation();
   const path = location.pathname.split("/").at(-1);
@@ -23,28 +33,54 @@ const SingleItem = () => {
 
   const handleDelete = async () => {
     await fetch(`http://localhost:3000/items/${path}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
-    alert('Item Deleted!');
-    navigate('/items');
+    alert("Item Deleted!");
+    navigate("/items");
+  };
+
+  const update = () => {
+    alert("Item Updated");
+    navigate("/items");
   };
 
   return (
-    <div>
-      <h1>{singleItem.title}</h1>
-      <h1>{singleItem.description}</h1>
-      <button
-        onClick={() => {
-          setUpdateItem(true);
-        }}
-      >
-        Update Items
-      </button>
-      <button onClick={handleDelete}>Delete</button>
+    <SingleItemContainer>
+      <ItemName>{singleItem.title}</ItemName>
+      <ItemDeskptopDiv>
+        <ItemImage src={`${singleItem.image}`} alt="" />
+        <ItemDescButtonDiv>
+          <ItemDescription>{singleItem.description}</ItemDescription>
+
+          <button
+            onClick={() => {
+              setUpdateItem(true);
+            }}
+          >
+            Update Items
+          </button>
+
+          <button
+            onClick={() => {
+              setOrders([...orders, singleItem]);
+              alert("Item has been ordered");
+              navigate("/items");
+            }}
+          >
+            Add to your Orders
+          </button>
+
+          <button onClick={handleDelete}>Delete</button>
+        </ItemDescButtonDiv>
+      </ItemDeskptopDiv>
       {updateItem && (
-        <NewItemForm url={`http://localhost:3000/items/${path}`} verb="PUT" />
+        <NewItemForm
+          url={`http://localhost:3000/items/${path}`}
+          verb="PUT"
+          update={update}
+        />
       )}
-    </div>
+    </SingleItemContainer>
   );
 };
 

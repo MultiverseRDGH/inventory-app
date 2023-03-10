@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Item from "./Item";
 import { v4 } from "uuid";
+import { AllItems, AllItemsHeader } from "../styles/styledComponents";
+
 export default function ItemList() {
   const [items, setItems] = useState([]);
 
@@ -17,11 +19,15 @@ export default function ItemList() {
   }, []);
 
   console.log(items, "items");
+
   return (
-    <ul>
-      {items.map((item) => (
-        <Item key={v4()} item={item} />
-      ))}
-    </ul>
+    <>
+      <AllItemsHeader>All Items</AllItemsHeader>
+      <AllItems>
+        {items.map((item) => (
+          <Item key={v4()} item={item} />
+        ))}
+      </AllItems>
+    </>
   );
 }

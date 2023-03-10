@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { FormContainer, FormSection } from "../styles/styledComponents";
 
-export default function NewItemForm({ url, verb }) {
+export default function NewItemForm({ url, verb, update }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
@@ -32,26 +33,43 @@ export default function NewItemForm({ url, verb }) {
       });
 
     e.target.reset();
+
+    if (verb === "PUT") {
+      update();
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title:</label>
-      <input type="text" onChange={(e) => setTitle(e.target.value)} />
+    <FormContainer onSubmit={handleSubmit}>
+      <div>
+        <FormSection className="formSection">
+          <label htmlFor="title">Title:</label>
 
-      <label htmlFor="description">Description:</label>
-      <input type="text" onChange={(e) => setDescription(e.target.value)} />
+          <input type="text" onChange={(e) => setTitle(e.target.value)} />
+        </FormSection>
 
-      <label htmlFor="price">Price:</label>
-      <input type="text" onChange={(e) => setPrice(e.target.value)} />
+        <FormSection className="formSection">
+          <label htmlFor="description">Description:</label>
+          <input type="text" onChange={(e) => setDescription(e.target.value)} />
+        </FormSection>
 
-      <label htmlFor="category">Category:</label>
-      <input type="text" onChange={(e) => setCategory(e.target.value)} />
+        <FormSection className="formSection">
+          <label htmlFor="price">Price:</label>
+          <input type="text" onChange={(e) => setPrice(e.target.value)} />
+        </FormSection>
 
-      <label htmlFor="image">Image URL:</label>
-      <input type="text" onChange={(e) => setImage(e.target.value)} />
+        <FormSection className="formSection">
+          <label htmlFor="category">Category:</label>
+          <input type="text" onChange={(e) => setCategory(e.target.value)} />
+        </FormSection>
+
+        <FormSection className="formSection">
+          <label htmlFor="image">Image URL:</label>
+          <input type="text" onChange={(e) => setImage(e.target.value)} />
+        </FormSection>
+      </div>
 
       <button type="submit">Submit</button>
-    </form>
+    </FormContainer>
   );
 }

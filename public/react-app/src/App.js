@@ -3,16 +3,29 @@ import ItemList from "./components/ItemList";
 import { Routes, Route } from "react-router-dom";
 import SingleItemPage from "./pages/SingleItemPage";
 import NewItemPage from "./pages/NewItemPage";
+import { createContext, useEffect, useState } from "react";
+
+import OrdersPage from "./pages/OrdersPage";
+
+export const OrderContext = createContext({
+  orders: [],
+  setOrders: () => {},
+});
 
 function App() {
+  const [orders, setOrders] = useState([]);
+
   return (
     <>
       <h1>Hello</h1>
-      <Routes>
-        <Route path="/items" element={<ItemList />}></Route>
-        <Route path="/items/single/:id" element={<SingleItemPage />}></Route>
-        <Route path="/items/new" element={<NewItemPage />}></Route>
-      </Routes>
+      <OrderContext.Provider value={{ orders, setOrders }}>
+        <OrdersPage />
+        <Routes>
+          <Route path="/items" element={<ItemList />}></Route>
+          <Route path="/items/single/:id" element={<SingleItemPage />}></Route>
+          <Route path="/items/new" element={<NewItemPage />}></Route>
+        </Routes>
+      </OrderContext.Provider>
     </>
   );
 }
