@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import {
   Nav,
@@ -10,9 +10,12 @@ import {
   NavBtnLink,
   HamburgerMenu,
 } from './NavbarElements';
-import { FaBars, FaBoxOpen } from 'react-icons/fa';
+
+import { OrderContext } from '../../App';
+import { FaBars, FaBoxOpen, FaShoppingBag } from 'react-icons/fa';
 
 const Navbar = ({ toggle }) => {
+  const { orders } = useContext(OrderContext);
   return (
     <>
       <Nav>
@@ -35,7 +38,9 @@ const Navbar = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink>Contact</NavBtnLink>
+          <NavBtnLink>
+            {orders.length} Items in Bag - <FaShoppingBag />
+          </NavBtnLink>
         </NavBtn>
       </Nav>
     </>

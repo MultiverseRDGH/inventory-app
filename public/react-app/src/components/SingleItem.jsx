@@ -44,7 +44,7 @@ const SingleItem = () => {
   };
 
   const update = () => {
-    alert('Item Updated');
+    // alert('Item Updated');
     navigate('/');
   };
 

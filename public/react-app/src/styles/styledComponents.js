@@ -9,7 +9,7 @@ export const FormContainer = styled.form`
   border-radius: 1.2rem;
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
 
   > button {
@@ -18,14 +18,15 @@ export const FormContainer = styled.form`
     border-radius: 1.2rem;
     border: none;
     background-color: #c98f2c;
-    width: 40%;
-    height: 10%;
+    width: 25%;
+    height: 20%;
     margin: auto;
-    font-size: 2rem;
-    font-family: 'Kanit', sans-serif;
-    font-weight: 900;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    font-weight: 600;
     text-transform: uppercase;
-    text-decoration: underline;
   }
 `;
 
@@ -43,9 +44,8 @@ export const FormSection = styled.div`
   }
   > label {
     padding: 0 1rem;
-    font-family: 'Marko One', serif;
     font-size: 1.2rem;
-    font-weight: 900;
+    font-weight: 600;
   }
 `;
 
@@ -56,7 +56,7 @@ export const SingleItemContainer = styled.div`
   flex-direction: column;
   text-align: center;
   padding: 2rem 3rem;
-  height: 100vh;
+  height: 160vh;
 `;
 
 export const ItemImage = styled.img`
@@ -190,7 +190,7 @@ export const AllItemsHeader = styled.h1`
 export const Order = styled.li`
   text-align: center;
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 600;
   color: black;
 `;
 
